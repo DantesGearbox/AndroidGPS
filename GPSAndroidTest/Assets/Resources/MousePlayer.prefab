@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d4a53aaaabb714e9531ba968502e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GPS: {fileID: 0}
   GPSMovementSpeed: 2
   mouseControls: 1
   mouseControlMovementSpeed: 2
