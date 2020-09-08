@@ -10,11 +10,15 @@ public class GPSLocation : MonoBehaviour
 {
 	public static GPSLocation Instance;
 
+	public bool PCVersion = false;
+
 	public float mapSizeX = 45;
 	public float mapSizeY = 80;
 
 	public float startLon = -1;
 	public float startLat = -1;
+
+	public float GPStimeWait = 5;
 
 	[SerializeField] private Text GPSDataText = null;
 	[SerializeField] private Text recentDebugInformation = null;
@@ -32,7 +36,15 @@ public class GPSLocation : MonoBehaviour
 	{
 		Instance = this;
 		photonView = GetComponent<PhotonView>();
-		StartCoroutine(StartGPS());
+
+		if (PCVersion)
+		{
+			recentDebugInformation.text = "GPS not started since this is a PC version.";
+		} 
+		else
+		{
+			StartCoroutine(StartGPS());
+		}
 	}
 
 	void Update()
@@ -139,21 +151,19 @@ public class GPSLocation : MonoBehaviour
 			yield break;
 		}
 
-		float timeWait = 1f;
+		yield return new WaitForSeconds(GPStimeWait);
 
-		yield return new WaitForSeconds(timeWait);
+		recentDebugInformation.text = "Getting GPS ready. Please wait for " + GPStimeWait * 6 + " seconds...";
 
-		recentDebugInformation.text = "Getting GPS ready. Please wait for " + timeWait * 6 + " seconds...";
+		yield return new WaitForSeconds(GPStimeWait);
 
-		yield return new WaitForSeconds(timeWait);
+		yield return new WaitForSeconds(GPStimeWait);
 
-		yield return new WaitForSeconds(timeWait);
+		yield return new WaitForSeconds(GPStimeWait);
 
-		yield return new WaitForSeconds(timeWait);
+		yield return new WaitForSeconds(GPStimeWait);
 
-		yield return new WaitForSeconds(timeWait);
-
-		yield return new WaitForSeconds(timeWait);
+		yield return new WaitForSeconds(GPStimeWait);
 
 		recentDebugInformation.text = "Found center";
 	
