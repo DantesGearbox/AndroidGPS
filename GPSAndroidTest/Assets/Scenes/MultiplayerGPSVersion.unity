@@ -167,7 +167,6 @@ MonoBehaviour:
   playerPrefab: {fileID: 533652241441929430, guid: 786c592ca6ec0e04a8bf1a9bb1cd7c47,
     type: 3}
   text: {fileID: 1254627726}
-  maxPlayerPerRoom: 8
 --- !u!1 &593089420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1915445630}
   - component: {fileID: 1915445631}
+  - component: {fileID: 1915445632}
   m_Layer: 0
   m_Name: GPS
   m_TagString: Untagged
@@ -1244,15 +1244,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapSizeX: 45
   mapSizeY: 80
+  startLon: -1
+  startLat: -1
   GPSDataText: {fileID: 1254627726}
   recentDebugInformation: {fileID: 2022465961}
-  centerOfMap: {fileID: 1306700626}
-  player: {fileID: 0}
   compass: {fileID: 1433062948}
-  blue: {fileID: 815466865}
-  purple: {fileID: 593089421}
-  red: {fileID: 966620240}
-  green: {fileID: 600073396}
+--- !u!114 &1915445632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915445629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2022465959
 GameObject:
   m_ObjectHideFlags: 0

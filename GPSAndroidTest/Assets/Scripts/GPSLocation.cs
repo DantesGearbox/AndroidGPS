@@ -13,22 +13,66 @@ public class GPSLocation : MonoBehaviour
 	public float mapSizeX = 45;
 	public float mapSizeY = 80;
 
+	public float startLon = -1;
+	public float startLat = -1;
+
 	[SerializeField] private Text GPSDataText = null;
 	[SerializeField] private Text recentDebugInformation = null;
 
-	[SerializeField] private Transform centerOfMap = null;
-	[SerializeField] private Transform player = null;
-
 	[SerializeField] private Transform compass = null;
 
-	[SerializeField] private Transform blue = null;
-	[SerializeField] private Transform purple = null;
-	[SerializeField] private Transform red = null;
-	[SerializeField] private Transform green = null;
+	private PhotonView photonView;
 
-	private ExitGames.Client.Photon.Hashtable roomStartCoords = new ExitGames.Client.Photon.Hashtable();
+	private float currentLon = -1;
+	private float currentLat = -1;
 
 	private bool GPSReady = false; //Even if the location service is running, the GPS might not be reporting correctly yet
+
+	void Start()
+	{
+		Instance = this;
+		photonView = GetComponent<PhotonView>();
+		StartCoroutine(StartGPS());
+	}
+
+	void Update()
+	{
+		//Note: The code below synchronises startLon and startLat by setting them in MasterClients update
+		//		and having the clients get them in their update. This has to happen in update because we don't
+		//		know when anyone connects/disconnects. This is not an amazing way of doing it, but it will do for now.
+		if (PhotonNetwork.LocalPlayer.IsMasterClient)
+		{
+			photonView.RPC("SetStartLat", RpcTarget.Others, startLon);
+			photonView.RPC("SetStartLon", RpcTarget.Others, startLat);
+		}
+		else
+		{
+			startLon = GetStartLon();
+			startLat = GetStartLat();
+		}
+
+		if (Input.location.status == LocationServiceStatus.Failed)
+		{
+			recentDebugInformation.text = "GPS Connection failed. Restart/reconnect the game and make sure that the GPS is active.";
+		}
+		else if (IsGPSReady())
+		{
+			recentDebugInformation.text = "GPS is running";
+
+			//UPDATE COORDINATES OF DEVICE
+			UpdateCurrentCoordinates();
+
+			//ROTATION OF COMPASS
+			float north = Input.compass.trueHeading;
+			compass.rotation = Quaternion.Slerp(compass.rotation, Quaternion.Euler(0, 0, north), Time.deltaTime * 2);
+		}
+	}
+
+	private void UpdateCurrentCoordinates()
+	{
+		currentLon = Input.location.lastData.longitude;
+		currentLat = Input.location.lastData.latitude;
+	}
 
 	public bool IsGPSReady()
 	{
@@ -37,69 +81,17 @@ public class GPSLocation : MonoBehaviour
 
 	public Vector3 DeviceCurrentPosition()
 	{
-		float currentLon = Input.location.lastData.longitude;
-		float currentLat = Input.location.lastData.latitude;
-
-		Vector2 startLonLat = GrabStartCoords();
-
-		return ConvertToXY(startLonLat.x, currentLon, startLonLat.y, currentLat);
+		return ConvertToXY(startLon, currentLon, startLat, currentLat);
 	}
 
-	private Vector2 DeviceCurrentCoordinates()
+	public float GetCurrentLon()
 	{
-		float currentLon = Input.location.lastData.longitude;
-		float currentLat = Input.location.lastData.latitude;
-
-		Vector2 coords = new Vector2(currentLon, currentLat);
-
-		return coords;
+		return currentLon;
 	}
 
-	private Vector2 GrabStartCoords()
+	public float GetCurrentLat()
 	{
-		float startLon = -1;
-		if (PhotonNetwork.MasterClient.CustomProperties.ContainsKey("StartLon"))
-		{
-			Debug.Log("IsMasterClient: " + PhotonNetwork.IsMasterClient);
-			startLon = (float)PhotonNetwork.MasterClient.CustomProperties["StartLon"];
-		}
-
-		float startLat = -1;
-		if (PhotonNetwork.MasterClient.CustomProperties.ContainsKey("StartLat"))
-		{
-			Debug.Log("IsMasterClient: " + PhotonNetwork.IsMasterClient);
-			startLat = (float)PhotonNetwork.MasterClient.CustomProperties["StartLat"];
-		}
-
-		return new Vector2(startLon, startLat);
-	}
-
-	void Start()
-	{
-		Instance = this;
-		StartCoroutine(StartGPS());
-	}
-
-	void Update()
-	{
-		if (Input.location.status == LocationServiceStatus.Failed)
-		{
-			recentDebugInformation.text = "GPS Connection failed. Restart/reconnect the game and make sure that the GPS is active.";
-		}
-		else if (IsGPSReady())
-		{
-			recentDebugInformation.text = "GPS is running";
-			//ROTATION OF COMPASS
-			float north = Input.compass.trueHeading;
-			compass.rotation = Quaternion.Slerp(compass.rotation, Quaternion.Euler(0, 0, north), Time.deltaTime * 2);
-
-			Vector2 startLonLat = GrabStartCoords();
-			GPSDataText.text = "Custom properties: " + startLonLat.x + ", " + startLonLat.y;
-		}
-		else
-		{
-
-		}
+		return currentLat;
 	}
 
 	IEnumerator StartGPS()
@@ -164,26 +156,12 @@ public class GPSLocation : MonoBehaviour
 		yield return new WaitForSeconds(timeWait);
 
 		recentDebugInformation.text = "Found center";
-
-		if (PhotonNetwork.LocalPlayer.IsMasterClient)
-		{
-			float startLon = Input.location.lastData.longitude;
-			float startLat = Input.location.lastData.latitude;
-
-			Debug.Log("Saving custom properties: " + startLon + ", " + startLat);
-			OnSetStartCoords(startLon, startLat);
-		}
+	
+		startLon = Input.location.lastData.longitude;
+		startLat = Input.location.lastData.latitude;
+		Debug.Log("StartLon, StartLat: " + startLon + ", " + startLat);
 
 		GPSReady = true;
-	}
-	public void OnSetStartCoords(float startLon, float startLat)
-	{
-		roomStartCoords["StartLon"] = startLon;
-		roomStartCoords["StartLat"] = startLat;
-
-		PhotonNetwork.MasterClient.CustomProperties = roomStartCoords;
-		//PhotonNetwork.LocalPlayer.CustomProperties.Add("StartLon", startLon);
-		//PhotonNetwork.LocalPlayer.CustomProperties.Add("StartLat", startLat);
 	}
 
 	//Returns the distance between two points in meters
@@ -231,5 +209,26 @@ public class GPSLocation : MonoBehaviour
 	private float Map(float v, float from1, float to1, float from2, float to2)
 	{
 		return (v - from1) / (to1 - from1) * (to2 - from2) + from2;
+	}
+
+	[PunRPC]
+	public void SetStartLat(float _startLat)
+	{
+		startLat = _startLat;
+	}
+	[PunRPC]
+	public void SetStartLon(float _startLon)
+	{
+		startLon = _startLon;
+	}
+
+	public float GetStartLat()
+	{
+		return startLat;
+	}
+
+	public float GetStartLon()
+	{
+		return startLon;
 	}
 }

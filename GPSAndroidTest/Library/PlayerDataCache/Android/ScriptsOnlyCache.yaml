@@ -14,8 +14,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -294,7 +292,7 @@ ScriptsOnlyBuild:
     className: ChatGui
   - hash:
       serializedVersion: 2
-      Hash: 86f055802924339b3f184dbd12ef2829
+      Hash: 113fbce9b85880c96b2cdf3976d52bac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GPSLocation
@@ -1573,4 +1571,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/MultiplayerGPSVersion.unity
-  playerPath: C:/Users/Mads/Documents/Unity Projects/GPSAndroidTest/Builds/GPSSimpleCoordinateTest.apk
+  playerPath: C:/Users/Mads/Documents/Unity Projects/AndroidGPS/GPSAndroidTest/Builds/GPSSimpleCoordinateTest.apk
