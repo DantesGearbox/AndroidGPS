@@ -1,9 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BounceUpAndDown
     - ConnectToServer
-    - GPSLocation
+    - Food
+    - GPSLocation3D
+    - InteractionCircle
+    - InteractionCircle3D
     - PlayerController
+    - PlayerController3D
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -14,6 +19,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -50,7 +57,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/MultiplayerGPSVersion.unity:
+    Assets/Scenes/3DTest.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -69,8 +76,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 65
@@ -87,56 +92,68 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11162}
+      Script: {instanceID: 11174}
     - Class: 114
-      Script: {instanceID: 11166}
+      Script: {instanceID: 11178}
     - Class: 114
-      Script: {instanceID: 11168}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 11194}
+      Script: {instanceID: 11206}
     - Class: 114
-      Script: {instanceID: 11372}
+      Script: {instanceID: 11402}
     - Class: 114
-      Script: {instanceID: 11438}
+      Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 11478}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11616}
     - Class: 114
-      Script: {instanceID: 11630}
+      Script: {instanceID: 11660}
     - Class: 114
-      Script: {instanceID: 12332}
+      Script: {instanceID: 11868}
     - Class: 114
-      Script: {instanceID: 12446}
+      Script: {instanceID: 12194}
     - Class: 114
-      Script: {instanceID: 12816}
+      Script: {instanceID: 12368}
     - Class: 114
-      Script: {instanceID: 12920}
+      Script: {instanceID: 12484}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 12866}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 12974}
     - Class: 114
-      Script: {instanceID: 13416}
+      Script: {instanceID: 13272}
     - Class: 114
-      Script: {instanceID: 13430}
+      Script: {instanceID: 13372}
     - Class: 114
-      Script: {instanceID: 13502}
+      Script: {instanceID: 13490}
     - Class: 114
-      Script: {instanceID: 13756}
+      Script: {instanceID: 13504}
     - Class: 114
-      Script: {instanceID: 13788}
+      Script: {instanceID: 13576}
     - Class: 114
-      Script: {instanceID: 13798}
+      Script: {instanceID: 13838}
+    - Class: 114
+      Script: {instanceID: 13870}
+    - Class: 114
+      Script: {instanceID: 13880}
     - Class: 114
       Script: {instanceID: 13986}
     - Class: 114
-      Script: {instanceID: 14540}
+      Script: {instanceID: 14074}
     - Class: 114
-      Script: {instanceID: 14680}
+      Script: {instanceID: 14656}
     - Class: 114
-      Script: {instanceID: 14718}
+      Script: {instanceID: 14796}
+    - Class: 114
+      Script: {instanceID: 14834}
+    - Class: 114
+      Script: {instanceID: 14838}
+    - Class: 114
+      Script: {instanceID: 19338}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -292,10 +309,16 @@ ScriptsOnlyBuild:
     className: ChatGui
   - hash:
       serializedVersion: 2
-      Hash: 113fbce9b85880c96b2cdf3976d52bac
+      Hash: 3e1acde412e6ed0899f3573b01c85b7c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GPSLocation
+  - hash:
+      serializedVersion: 2
+      Hash: 1df5043f0424ac97346ea8f965958921
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Food
   - hash:
       serializedVersion: 2
       Hash: 74c875e0f15c48e0a55f06093aa93e15
@@ -514,6 +537,12 @@ ScriptsOnlyBuild:
     className: BezierCurve
   - hash:
       serializedVersion: 2
+      Hash: 35f2100dbb67b3e1b06354ab40661d76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InteractionCircle3D
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Hub
@@ -620,6 +649,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.dll
     namespaceName: Photon.Pun
     className: PhotonRigidbody2DView
+  - hash:
+      serializedVersion: 2
+      Hash: bf4698a3b70ae92d7166ab31c3de7991
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InteractionCircle
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -742,6 +777,12 @@ ScriptsOnlyBuild:
     className: CurrentRoomPlayerTtlProperty
   - hash:
       serializedVersion: 2
+      Hash: 1df5043f0424ac97346ea8f965958921
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Interactable
+  - hash:
+      serializedVersion: 2
       Hash: f941c3a384168571b7d90f58ec4986bc
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -800,6 +841,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChannelSelector
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LeanTween
   - hash:
       serializedVersion: 2
       Hash: 14f6e7d5314d3aff9265172f9d1e95a9
@@ -1006,6 +1053,12 @@ ScriptsOnlyBuild:
     className: PlayerUI
   - hash:
       serializedVersion: 2
+      Hash: 8491d6dc91856701b1cda4ed3dbaa6a0
+    assemblyName: Unity.VectorGraphics.dll
+    namespaceName: 
+    className: SVGImage
+  - hash:
+      serializedVersion: 2
       Hash: a8a4fba96bef6fccf7bb4be2f06c16b6
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
@@ -1202,6 +1255,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: ScoreHelper
+  - hash:
+      serializedVersion: 2
+      Hash: 6f2da57e7eac37133c7c7e98010ac3eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerController3D
   - hash:
       serializedVersion: 2
       Hash: e80cf4684910fdd7f091d85a19a93603
@@ -1516,6 +1575,12 @@ ScriptsOnlyBuild:
     className: WorldGenerator
   - hash:
       serializedVersion: 2
+      Hash: 3bf896c10bcc5238e380fe0107b45b8f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BounceUpAndDown
+  - hash:
+      serializedVersion: 2
       Hash: 55fd795e51da61232a17e9ce0af59f52
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Asteroids
@@ -1568,7 +1633,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 59acdf86179c0fc37c562d655bc5017d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GPSLocation3D
   platform: 13
   scenePathNames:
-  - Assets/Scenes/MultiplayerGPSVersion.unity
+  - Assets/Scenes/3DTest.unity
   playerPath: C:/Users/Mads/Documents/Unity Projects/AndroidGPS/GPSAndroidTest/Builds/GPSSimpleCoordinateTest.apk

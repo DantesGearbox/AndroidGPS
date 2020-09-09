@@ -54,7 +54,9 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 		{
 			if (LocalPlayerInstance == null)
 			{
-				PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity, 0);
+				Quaternion spawnAngle = Quaternion.Euler(90, 0, 0);
+				Vector3 spawnPosition = new Vector3(0, 0.5f, 0);
+				PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnAngle, 0);
 			}
 		}
 	}

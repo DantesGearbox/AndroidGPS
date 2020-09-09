@@ -71,8 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -1307414235
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 3286163911610860551, guid: ef52b468184ad8b40a4c3a32859aa964,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65f18afe6e4671b45a9126eb7430056e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -190,6 +189,8 @@ GameObject:
   - component: {fileID: 88630122614015261}
   - component: {fileID: 88630122614015262}
   - component: {fileID: 88630122614015263}
+  - component: {fileID: 5183921089832068279}
+  - component: {fileID: 2023435563768339221}
   m_Layer: 0
   m_Name: UnspecificFood
   m_TagString: Untagged
@@ -239,3 +240,41 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5183921089832068279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88630122614015260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 2023435563768339221}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &2023435563768339221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88630122614015260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0

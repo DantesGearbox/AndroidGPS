@@ -53,13 +53,13 @@ public class PlayerController3D : MonoBehaviourPun
 			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 12);
 		}
 
-		if (!mouseControls && GPSLocation.Instance.IsGPSReady()) //Restrict movement if the GPS is not ready
+		if (!mouseControls && GPSLocation3D.Instance.IsGPSReady()) //Restrict movement if the GPS is not ready
 		{
 			//POSITION OF PLAYER
 			previousPlayerPosition = currentPlayerPosition;
-			currentPlayerPosition = GPSLocation.Instance.DeviceCurrentPosition();
+			currentPlayerPosition = GPSLocation3D.Instance.DeviceCurrentPosition();
 
-			transform.position = Vector2.Lerp(transform.position, currentPlayerPosition, Time.deltaTime * GPSMovementSpeed);
+			transform.position = Vector3.Lerp(transform.position, currentPlayerPosition, Time.deltaTime * GPSMovementSpeed);
 
 			//ROTATION OF PLAYER
 			Vector3 currentLookingDirection = currentPlayerPosition - previousPlayerPosition;
@@ -69,8 +69,8 @@ public class PlayerController3D : MonoBehaviourPun
 				nonZeroLookingDirection = currentLookingDirection;
 			}
 
-			float lookAngle = Mathf.Atan2(nonZeroLookingDirection.y, nonZeroLookingDirection.x) * Mathf.Rad2Deg;
-			Quaternion target = Quaternion.Euler(0, 0, lookAngle);
+			float lookAngle = Mathf.Atan2(nonZeroLookingDirection.z, nonZeroLookingDirection.x) * Mathf.Rad2Deg;
+			Quaternion target = Quaternion.Euler(90, 0, lookAngle);
 			transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 12);
 		}
 	}

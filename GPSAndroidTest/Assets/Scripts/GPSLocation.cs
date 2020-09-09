@@ -18,7 +18,7 @@ public class GPSLocation : MonoBehaviour
 	public float startLon = -1;
 	public float startLat = -1;
 
-	public float GPStimeWait = 5;
+	public float GPSTimeWait = 5;
 
 	[SerializeField] private Text GPSDataText = null;
 	[SerializeField] private Text recentDebugInformation = null;
@@ -151,19 +151,19 @@ public class GPSLocation : MonoBehaviour
 			yield break;
 		}
 
-		yield return new WaitForSeconds(GPStimeWait);
+		yield return new WaitForSeconds(GPSTimeWait);
 
-		recentDebugInformation.text = "Getting GPS ready. Please wait for " + GPStimeWait * 6 + " seconds...";
+		recentDebugInformation.text = "Getting GPS ready. Please wait for " + GPSTimeWait * 6 + " seconds...";
 
-		yield return new WaitForSeconds(GPStimeWait);
+		yield return new WaitForSeconds(GPSTimeWait);
 
-		yield return new WaitForSeconds(GPStimeWait);
+		yield return new WaitForSeconds(GPSTimeWait);
 
-		yield return new WaitForSeconds(GPStimeWait);
+		yield return new WaitForSeconds(GPSTimeWait);
 
-		yield return new WaitForSeconds(GPStimeWait);
+		yield return new WaitForSeconds(GPSTimeWait);
 
-		yield return new WaitForSeconds(GPStimeWait);
+		yield return new WaitForSeconds(GPSTimeWait);
 
 		recentDebugInformation.text = "Found center";
 	
