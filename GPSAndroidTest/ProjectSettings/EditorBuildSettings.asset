@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MultiplayerGPSVersion.unity
-    guid: f632d86bf844acf40a56453a26cfab31
+    path: Assets/Scenes/3DTest.unity
+    guid: 436a18e7f6cb1f84d8edede71f3b3724
   m_configObjects: {}

@@ -91,7 +91,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3931136973110699000}
   - component: {fileID: 3931136973110698999}
-  - component: {fileID: 3931136973110698998}
   - component: {fileID: 3931136973110698996}
   - component: {fileID: 3931136973110698997}
   m_Layer: 0
@@ -131,27 +130,6 @@ MonoBehaviour:
   GPSMovementSpeed: 2
   mouseControls: 1
   mouseControlMovementSpeed: 2
---- !u!50 &3931136973110698998
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3931136973110699001}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!114 &3931136973110698996
 MonoBehaviour:
   m_ObjectHideFlags: 0
