@@ -20,7 +20,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
     PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
+    - Photon.Pun.PhotonTransformViewEditor
+    - Photon.Pun.PhotonViewInspector
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -115,45 +116,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11868}
     - Class: 114
-      Script: {instanceID: 12194}
+      Script: {instanceID: 11950}
     - Class: 114
-      Script: {instanceID: 12368}
+      Script: {instanceID: 12196}
     - Class: 114
-      Script: {instanceID: 12484}
+      Script: {instanceID: 12370}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 12486}
     - Class: 114
-      Script: {instanceID: 12974}
+      Script: {instanceID: 12868}
     - Class: 114
-      Script: {instanceID: 13272}
+      Script: {instanceID: 12976}
     - Class: 114
-      Script: {instanceID: 13372}
+      Script: {instanceID: 13274}
     - Class: 114
-      Script: {instanceID: 13490}
+      Script: {instanceID: 13374}
     - Class: 114
-      Script: {instanceID: 13504}
+      Script: {instanceID: 13492}
     - Class: 114
-      Script: {instanceID: 13576}
+      Script: {instanceID: 13506}
     - Class: 114
-      Script: {instanceID: 13838}
+      Script: {instanceID: 13578}
     - Class: 114
-      Script: {instanceID: 13870}
+      Script: {instanceID: 13840}
     - Class: 114
-      Script: {instanceID: 13880}
+      Script: {instanceID: 13872}
     - Class: 114
-      Script: {instanceID: 13986}
+      Script: {instanceID: 13882}
     - Class: 114
-      Script: {instanceID: 14074}
+      Script: {instanceID: 13988}
     - Class: 114
-      Script: {instanceID: 14656}
+      Script: {instanceID: 14076}
     - Class: 114
-      Script: {instanceID: 14796}
+      Script: {instanceID: 14658}
     - Class: 114
-      Script: {instanceID: 14834}
+      Script: {instanceID: 14798}
     - Class: 114
-      Script: {instanceID: 14838}
+      Script: {instanceID: 14836}
     - Class: 114
-      Script: {instanceID: 19338}
+      Script: {instanceID: 14840}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -577,6 +578,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: AspectRatioFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 59acdf86179c0fc37c562d655bc5017d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GPSLocation3D
   - hash:
       serializedVersion: 2
       Hash: cba6cca6bb3290c4c00d709cf63843db
@@ -1633,13 +1640,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 59acdf86179c0fc37c562d655bc5017d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GPSLocation3D
   platform: 13
   scenePathNames:
   - Assets/Scenes/3DTest.unity
-  playerPath: C:/Users/Mads/Documents/Unity Projects/AndroidGPS/GPSAndroidTest/Builds/GPSSimpleCoordinateTest.apk
+  playerPath: C:/Users/Mads/Documents/Unity Projects/AndroidGPS/GPSAndroidTest/Exports

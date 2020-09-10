@@ -93,7 +93,9 @@ public class GPSLocation3D : MonoBehaviour
 
 	public Vector3 DeviceCurrentPosition()
 	{
-		return ConvertToXZ(startLon, currentLon, startLat, currentLat);
+		Vector3 pos = ConvertToXZ(startLon, currentLon, startLat, currentLat);
+		GPSDataText.text = "Player position: " + pos;
+		return pos;
 	}
 
 	public float GetCurrentLon()
