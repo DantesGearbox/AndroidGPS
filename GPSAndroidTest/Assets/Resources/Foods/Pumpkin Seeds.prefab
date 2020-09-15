@@ -11,12 +11,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3286163911610860551, guid: 3fd21a04c1f764b4695244aeec1b2fd2,
+      objectReference: {fileID: 3286163911610860551, guid: b369c2049eb0eef4fb485b11741a0fc2,
         type: 3}
     - target: {fileID: 88630122614015260, guid: 0a543e1b66e107245a812d8647750c06,
         type: 3}
       propertyPath: m_Name
-      value: RedMeat
+      value: Pumpkin Seeds
       objectReference: {fileID: 0}
     - target: {fileID: 88630122614015261, guid: 0a543e1b66e107245a812d8647750c06,
         type: 3}
@@ -76,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
         type: 3}
       propertyPath: name
-      value: Red Meat
+      value: Pumpkin Seeds
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a543e1b66e107245a812d8647750c06, type: 3}

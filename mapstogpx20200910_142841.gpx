@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Map data ©2020 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2020</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/55.6659913,12.6236874/55.6665055,12.6233879/@55.6663148,12.622784,17z/data=!4m2!4m1!3e2?shorturl=1&hl=en</url-->
+    <time>2020-09-10T16:28:39Z</time>
+  </metadata>
+<trk>
+  <name>2300 Copenhagen Municipality to 2300 Copenhagen Municipality</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="55.6659913" lon="12.6236874">
+    <name>TP001</name>
+	<time>2020-09-10T16:28:39Z</time>
+  </trkpt>
+  <trkpt lat="55.66613" lon="12.62456">
+    <name>TP002</name>
+	<time>2020-09-10T16:28:44Z</time>
+  </trkpt>
+  <trkpt lat="55.66615" lon="12.62467">
+    <name>TP003</name>
+	<time>2020-09-10T16:28:49Z</time>
+  </trkpt>
+  <trkpt lat="55.66616" lon="12.62475">
+    <name>TP004</name>
+	<time>2020-09-10T16:28:54Z</time>
+  </trkpt>
+  <trkpt lat="55.66618" lon="12.62479">
+    <name>TP005</name>
+	<time>2020-09-10T16:28:59Z</time>
+  </trkpt>
+  <trkpt lat="55.6662" lon="12.62483">
+    <name>TP006</name>
+	<time>2020-09-10T16:29:04Z</time>
+  </trkpt>
+  <trkpt lat="55.66621" lon="12.62484">
+    <name>TP007</name>
+	<time>2020-09-10T16:29:09Z</time>
+  </trkpt>
+  <trkpt lat="55.66623" lon="12.62485">
+    <name>TP008</name>
+	<time>2020-09-10T16:29:14Z</time>
+  </trkpt>
+  <trkpt lat="55.66625" lon="12.62486">
+    <name>TP009</name>
+	<time>2020-09-10T16:29:19Z</time>
+  </trkpt>
+  <trkpt lat="55.66628" lon="12.62485">
+    <name>TP010</name>
+	<time>2020-09-10T16:29:24Z</time>
+  </trkpt>
+  <trkpt lat="55.66635" lon="12.62483">
+    <name>TP011</name>
+	<time>2020-09-10T16:29:29Z</time>
+  </trkpt>
+  <trkpt lat="55.66636" lon="12.62482">
+    <name>TP012</name>
+	<time>2020-09-10T16:29:34Z</time>
+  </trkpt>
+  <trkpt lat="55.66638" lon="12.62481">
+    <name>TP013</name>
+	<time>2020-09-10T16:29:39Z</time>
+  </trkpt>
+  <trkpt lat="55.6664" lon="12.6248">
+    <name>TP014</name>
+	<time>2020-09-10T16:29:44Z</time>
+  </trkpt>
+  <trkpt lat="55.66641" lon="12.62479">
+    <name>TP015</name>
+	<time>2020-09-10T16:29:49Z</time>
+  </trkpt>
+  <trkpt lat="55.66652" lon="12.62471">
+    <name>TP016</name>
+	<time>2020-09-10T16:29:54Z</time>
+  </trkpt>
+  <trkpt lat="55.66663" lon="12.62465">
+    <name>TP017</name>
+	<time>2020-09-10T16:29:59Z</time>
+  </trkpt>
+  <trkpt lat="55.66666" lon="12.62463">
+    <name>TP018</name>
+	<time>2020-09-10T16:30:04Z</time>
+  </trkpt>
+  <trkpt lat="55.66668" lon="12.62462">
+    <name>TP019</name>
+	<time>2020-09-10T16:30:09Z</time>
+  </trkpt>
+  <trkpt lat="55.66669" lon="12.62461">
+    <name>TP020</name>
+	<time>2020-09-10T16:30:14Z</time>
+  </trkpt>
+  <trkpt lat="55.66669" lon="12.6246">
+    <name>TP021</name>
+	<time>2020-09-10T16:30:19Z</time>
+  </trkpt>
+  <trkpt lat="55.6667" lon="12.62459">
+    <name>TP022</name>
+	<time>2020-09-10T16:30:24Z</time>
+  </trkpt>
+  <trkpt lat="55.6667" lon="12.62458">
+    <name>TP023</name>
+	<time>2020-09-10T16:30:29Z</time>
+  </trkpt>
+  <trkpt lat="55.6667" lon="12.62457">
+    <name>TP024</name>
+	<time>2020-09-10T16:30:34Z</time>
+  </trkpt>
+  <trkpt lat="55.6667" lon="12.62456">
+    <name>TP025</name>
+	<time>2020-09-10T16:30:39Z</time>
+  </trkpt>
+  <trkpt lat="55.6667" lon="12.62454">
+    <name>TP026</name>
+	<time>2020-09-10T16:30:44Z</time>
+  </trkpt>
+  <trkpt lat="55.6667" lon="12.62452">
+    <name>TP027</name>
+	<time>2020-09-10T16:30:49Z</time>
+  </trkpt>
+  <trkpt lat="55.66669" lon="12.62446">
+    <name>TP028</name>
+	<time>2020-09-10T16:30:54Z</time>
+  </trkpt>
+  <trkpt lat="55.66651" lon="12.62339">
+    <name>TP029</name>
+	<time>2020-09-10T16:30:59Z</time>
+  </trkpt>
+  <trkpt lat="55.6665055" lon="12.6233879">
+    <name>TP030</name>
+	<time>2020-09-10T16:31:04Z</time>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

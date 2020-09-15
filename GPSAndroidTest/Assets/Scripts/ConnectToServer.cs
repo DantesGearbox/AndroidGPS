@@ -25,10 +25,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         PhotonNetwork.GameVersion = gameVersion;
 
 		Instance = this;
-	}
 
-	private void Update()
-	{
 		text.text = PhotonNetwork.BestRegionSummaryInPreferences;
 	}
 
@@ -40,6 +37,21 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 	public override void OnJoinRandomFailed(short returnCode, string message)
 	{
 		PhotonNetwork.CreateRoom(null, new RoomOptions());
+	}
+
+	public override void OnDisconnected(DisconnectCause cause)
+	{
+		Debug.Log("Disconnected because: " + cause);
+	}
+
+	public override void OnLeftRoom()
+	{
+		Debug.Log("Left Room");
+	}
+
+	public override void OnPlayerLeftRoom(Player otherPlayer)
+	{
+		Debug.Log("Player Left Room");
 	}
 
 	public override void OnJoinedRoom()
@@ -56,7 +68,10 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 			{
 				Quaternion spawnAngle = Quaternion.Euler(90, 0, 0);
 				Vector3 spawnPosition = new Vector3(0, 0.5f, 0);
-				PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnAngle, 0);
+				LocalPlayerInstance = PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnAngle, 0);
+
+				CameraMovement.Instance.freeLook.m_LookAt = LocalPlayerInstance.transform;
+				CameraMovement.Instance.freeLook.m_Follow = LocalPlayerInstance.transform;
 			}
 		}
 	}

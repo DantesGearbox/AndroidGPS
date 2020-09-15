@@ -18,7 +18,7 @@ public class GPSLocation3D : MonoBehaviour
 	public float startLon = -1;
 	public float startLat = -1;
 
-	public float GPSTimeWait = 5;
+	public float GPSTimeWait = 15;
 
 	[SerializeField] private Text GPSDataText = null;
 	[SerializeField] private Text recentDebugInformation = null;
@@ -29,6 +29,9 @@ public class GPSLocation3D : MonoBehaviour
 
 	private float currentLon = -1;
 	private float currentLat = -1;
+
+	private float sendStartCoordinatesTimer = 0;
+	private float sendStartCoordinatesTime = 5;
 
 	private bool GPSReady = false; //Even if the location service is running, the GPS might not be reporting correctly yet
 
@@ -54,8 +57,13 @@ public class GPSLocation3D : MonoBehaviour
 		//		know when anyone connects/disconnects. This is not an amazing way of doing it, but it will do for now.
 		if (PhotonNetwork.LocalPlayer.IsMasterClient)
 		{
-			photonView.RPC("SetStartLat", RpcTarget.Others, startLon);
-			photonView.RPC("SetStartLon", RpcTarget.Others, startLat);
+			sendStartCoordinatesTimer += Time.deltaTime;
+			if(sendStartCoordinatesTimer > sendStartCoordinatesTime)
+			{
+				photonView.RPC("SetStartLat", RpcTarget.Others, startLon);
+				photonView.RPC("SetStartLon", RpcTarget.Others, startLat);
+				sendStartCoordinatesTimer = 0;
+			}
 		}
 		else
 		{
@@ -69,8 +77,6 @@ public class GPSLocation3D : MonoBehaviour
 		}
 		else if (IsGPSReady())
 		{
-			recentDebugInformation.text = "GPS is running";
-
 			//UPDATE COORDINATES OF DEVICE
 			UpdateCurrentCoordinates();
 
@@ -84,6 +90,10 @@ public class GPSLocation3D : MonoBehaviour
 	{
 		currentLon = Input.location.lastData.longitude;
 		currentLat = Input.location.lastData.latitude;
+
+		recentDebugInformation.text = "GPS is running. " +
+			"Current coordinates are: (Lon: " + currentLon + ", Lat: " + currentLat + "), " +
+			"Start coordinates are: (StartLon: " + startLon + ", StartLat: " + startLat + ")";
 	}
 
 	public bool IsGPSReady()
