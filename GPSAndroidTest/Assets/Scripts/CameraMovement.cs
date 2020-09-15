@@ -20,7 +20,17 @@ public class CameraMovement : MonoBehaviour
     {
 		if (isDragging)
 		{
-			freeLook.m_XAxis.Value = Input.GetAxis("Mouse X");
+			float x = Input.GetAxis("Mouse X");
+			float y = Input.GetAxis("Mouse Y");
+
+			if (Mathf.Abs(x) > Mathf.Abs(y))
+			{
+				freeLook.m_XAxis.Value = x;
+			}
+			else
+			{
+				freeLook.m_XAxis.Value = y;
+			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.Mouse0))
