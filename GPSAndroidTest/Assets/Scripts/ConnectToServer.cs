@@ -10,6 +10,9 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 	public static ConnectToServer Instance;
 
 	public GameObject playerPrefab;
+	public GameObject mousePlayerPrefab;
+
+	public bool useMousePlayer = false;
 
 	public Text text;
 
@@ -68,10 +71,16 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 			{
 				Quaternion spawnAngle = Quaternion.Euler(90, 0, 0);
 				Vector3 spawnPosition = new Vector3(0, 0.5f, 0);
-				LocalPlayerInstance = PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnAngle, 0);
+				if (useMousePlayer)
+				{
+					LocalPlayerInstance = PhotonNetwork.Instantiate(mousePlayerPrefab.name, spawnPosition, spawnAngle, 0);
+				} else
+				{
+					LocalPlayerInstance = PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnAngle, 0);
+				}
 
-				CameraMovement.Instance.freeLook.m_LookAt = LocalPlayerInstance.transform;
-				CameraMovement.Instance.freeLook.m_Follow = LocalPlayerInstance.transform;
+				CameraMovement.Instance.SetLookAt(LocalPlayerInstance.transform);
+				//CameraMovement.Instance.SetFollow(LocalPlayerInstance.transform);
 			}
 		}
 	}

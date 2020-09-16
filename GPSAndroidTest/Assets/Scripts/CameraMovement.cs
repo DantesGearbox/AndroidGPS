@@ -1,6 +1,4 @@
 ﻿using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -8,6 +6,8 @@ public class CameraMovement : MonoBehaviour
 	public static CameraMovement Instance;
 
     public CinemachineFreeLook freeLook;
+
+	public CinemachineTargetGroup targetGroup;
 
     private bool isDragging;
 
@@ -23,13 +23,27 @@ public class CameraMovement : MonoBehaviour
 			float x = Input.GetAxis("Mouse X");
 			float y = Input.GetAxis("Mouse Y");
 
+			Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+
+			float invertYRotation = 1;
+			float invertXRotation = 1;
+
+			if(mousePos.x < 0.5)
+			{
+				invertYRotation = -1;
+			}
+			if (mousePos.y > 0.5)
+			{
+				invertXRotation = -1;
+			}
+
 			if (Mathf.Abs(x) > Mathf.Abs(y))
 			{
-				freeLook.m_XAxis.Value = x;
+				freeLook.m_XAxis.Value = x * invertXRotation;
 			}
 			else
 			{
-				freeLook.m_XAxis.Value = y;
+				freeLook.m_XAxis.Value = y * invertYRotation;
 			}
 		}
 
@@ -43,4 +57,19 @@ public class CameraMovement : MonoBehaviour
 			isDragging = false;
 		}
     }
+
+	public void AddLookAt(Transform transform)
+	{
+		targetGroup.AddMember(transform, 1, 1);
+	}
+
+	public void SetLookAt(Transform transform)
+	{
+		freeLook.m_LookAt = transform;
+	}
+
+	public void SetFollow(Transform transform)
+	{
+		freeLook.m_Follow = transform;
+	}
 }
