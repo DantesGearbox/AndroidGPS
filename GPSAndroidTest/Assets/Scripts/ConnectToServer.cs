@@ -79,7 +79,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 					LocalPlayerInstance = PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnAngle, 0);
 				}
 
-				CameraMovement.Instance.SetLookAt(LocalPlayerInstance.transform);
+				//CameraMovement.Instance.SetLookAt(LocalPlayerInstance.transform);
 				//CameraMovement.Instance.SetFollow(LocalPlayerInstance.transform);
 			}
 		}
