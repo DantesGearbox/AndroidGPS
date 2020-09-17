@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 88630122614015261, guid: 0a543e1b66e107245a812d8647750c06,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 88630122614015261, guid: 0a543e1b66e107245a812d8647750c06,
         type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 88630122614015261, guid: 0a543e1b66e107245a812d8647750c06,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 88630122614015261, guid: 0a543e1b66e107245a812d8647750c06,
         type: 3}
@@ -77,6 +77,36 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: Broccoli
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: iodineRegain
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: ironRegain
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: vitaminARegain
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: vitaminBRegain
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: vitaminCRegain
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: appetiteFilling
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a543e1b66e107245a812d8647750c06, type: 3}

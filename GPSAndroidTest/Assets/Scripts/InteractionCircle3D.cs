@@ -5,8 +5,11 @@ public class InteractionCircle3D : MonoBehaviour
 	public float radius = 5;
 	public LayerMask groundLayer;
 
+	private PlayerHealthStats healthStats;
+
 	void Start()
 	{
+		healthStats = GetComponentInParent<PlayerHealthStats>();
 		transform.localScale = new Vector3(radius, radius, 1);
 	}
 
@@ -38,7 +41,8 @@ public class InteractionCircle3D : MonoBehaviour
 
 				if (food != null)
 				{
-					food.Eat();
+					food.Eat(); //Delete the food
+					healthStats.EatFood(food); //Update the player health
 					return;
 				}
 			}

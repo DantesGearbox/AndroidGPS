@@ -78,5 +78,25 @@ PrefabInstance:
       propertyPath: name
       value: Bellpepper
       objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: iodineRegain
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: ironRegain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: vitaminARegain
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 88630122614015262, guid: 0a543e1b66e107245a812d8647750c06,
+        type: 3}
+      propertyPath: appetiteFilling
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a543e1b66e107245a812d8647750c06, type: 3}

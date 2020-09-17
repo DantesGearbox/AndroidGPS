@@ -270,6 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5002552071148834480}
+  - component: {fileID: -6322419292753709259}
   - component: {fileID: 5002552071148834507}
   - component: {fileID: 5002552071148834483}
   - component: {fileID: 5002552071148834484}
@@ -297,6 +298,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &-6322419292753709259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002552071148834485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a494db8867f824497f50d64908d8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appetiteIncreasePerSecond: 1
+  appetiteCurrentLevel: 100
+  appetiteMaxLevel: 100
+  overallCurrentHealth: 0
+  overallMaxHealth: 0
+  iodineLevel:
+    currentNutrientLevel: 5
+    maxNutrientLevel: 100
+    minNutrientLevel: 0
+  ironLevel:
+    currentNutrientLevel: 5
+    maxNutrientLevel: 100
+    minNutrientLevel: 0
+  vitaminALevel:
+    currentNutrientLevel: 5
+    maxNutrientLevel: 100
+    minNutrientLevel: 0
+  vitaminBLevel:
+    currentNutrientLevel: 5
+    maxNutrientLevel: 100
+    minNutrientLevel: 0
+  vitaminCLevel:
+    currentNutrientLevel: 5
+    maxNutrientLevel: 100
+    minNutrientLevel: 0
+  vitaminDLevel:
+    currentNutrientLevel: 5
+    maxNutrientLevel: 100
+    minNutrientLevel: 0
 --- !u!114 &5002552071148834507
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
 	public static ConnectToServer Instance;
 
-	public GameObject playerPrefab;
+	public GameObject GPSPlayerPrefab;
 	public GameObject mousePlayerPrefab;
 
 	public bool useMousePlayer = false;
@@ -61,7 +61,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 	{
 		Debug.Log("Joined room");
 
-		if (playerPrefab == null)
+		if (GPSPlayerPrefab == null)
 		{
 			Debug.LogError("Missing playerPrefab Reference", this);
 		}
@@ -76,7 +76,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 					LocalPlayerInstance = PhotonNetwork.Instantiate(mousePlayerPrefab.name, spawnPosition, spawnAngle, 0);
 				} else
 				{
-					LocalPlayerInstance = PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnAngle, 0);
+					LocalPlayerInstance = PhotonNetwork.Instantiate(GPSPlayerPrefab.name, spawnPosition, spawnAngle, 0);
 				}
 
 				//CameraMovement.Instance.SetLookAt(LocalPlayerInstance.transform);
