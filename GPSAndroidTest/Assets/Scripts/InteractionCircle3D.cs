@@ -41,9 +41,13 @@ public class InteractionCircle3D : MonoBehaviour
 
 				if (food != null)
 				{
-					food.Eat(); //Delete the food
-					healthStats.EatFood(food); //Update the player health
-					return;
+					//If we have enough appetite to eat this food
+					if(healthStats.appetiteCurrentLevel - food.appetiteFilling >= 0)
+					{
+						food.Eat(); //Delete the food
+						healthStats.EatFood(food); //Update the player health
+						return;
+					}
 				}
 			}
 		}

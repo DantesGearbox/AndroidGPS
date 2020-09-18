@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a494db8867f824497f50d64908d8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appetiteIncreasePerSecond: 1
+  appetiteIncreasePerSecond: 5
   appetiteCurrentLevel: 100
   appetiteMaxLevel: 100
   overallCurrentHealth: 0

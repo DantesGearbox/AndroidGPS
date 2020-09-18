@@ -21,7 +21,53 @@ public class PlayerHealthStats : MonoBehaviour
 	public NutrientLevel vitaminCLevel = new NutrientLevel(5, 100, 0);
 	public NutrientLevel vitaminDLevel = new NutrientLevel(5, 100, 0);
 
-	// Update is called once per frame
+	private void Start()
+	{
+		//The nutrient values are set in the editor.
+		//The overall health is based on the nutrient values.
+
+		SetOverallHealth();
+		InitialUIBarSetup();
+	}
+
+	private void InitialUIBarSetup()
+	{
+		UIBars.Instance.iodineBar.maximum = iodineLevel.maxNutrientLevel;
+		UIBars.Instance.iodineBar.minimum = iodineLevel.minNutrientLevel;
+
+		UIBars.Instance.ironBar.maximum = ironLevel.maxNutrientLevel;
+		UIBars.Instance.ironBar.minimum = ironLevel.minNutrientLevel;
+
+		UIBars.Instance.vitaminABar.maximum = vitaminALevel.maxNutrientLevel;
+		UIBars.Instance.vitaminABar.minimum = vitaminALevel.minNutrientLevel;
+
+		UIBars.Instance.vitaminBBar.maximum = vitaminBLevel.maxNutrientLevel;
+		UIBars.Instance.vitaminBBar.minimum = vitaminBLevel.minNutrientLevel;
+
+		UIBars.Instance.vitaminCBar.maximum = vitaminCLevel.maxNutrientLevel;
+		UIBars.Instance.vitaminCBar.minimum = vitaminCLevel.minNutrientLevel;
+
+		UIBars.Instance.vitaminDBar.maximum = vitaminDLevel.maxNutrientLevel;
+		UIBars.Instance.vitaminDBar.minimum = vitaminDLevel.minNutrientLevel;
+
+		UIBars.Instance.overallHealthBar.maximum = overallMaxHealth;
+		UIBars.Instance.overallHealthBar.minimum = 0;
+
+		UIBars.Instance.appetiteBar.maximum = appetiteMaxLevel;
+		UIBars.Instance.appetiteBar.minimum = 0;
+	}
+
+	private void UpdateNutrientUIBars()
+	{
+		UIBars.Instance.iodineBar.current = iodineLevel.currentNutrientLevel;
+		UIBars.Instance.ironBar.current = ironLevel.currentNutrientLevel;
+		UIBars.Instance.vitaminABar.current = vitaminALevel.currentNutrientLevel;
+		UIBars.Instance.vitaminBBar.current = vitaminBLevel.currentNutrientLevel;
+		UIBars.Instance.vitaminCBar.current = vitaminCLevel.currentNutrientLevel;
+		UIBars.Instance.vitaminDBar.current = vitaminDLevel.currentNutrientLevel;
+	}
+
+		// Update is called once per frame
 	void Update()
 	{
 		//increase appetite
@@ -29,25 +75,44 @@ public class PlayerHealthStats : MonoBehaviour
 		{
 			appetiteCurrentLevel += appetiteIncreasePerSecond * Time.deltaTime;
 		}
+		UIBars.Instance.appetiteBar.current = appetiteCurrentLevel;
 	}
 
 	public void EatFood(Food food)
 	{
 		appetiteCurrentLevel -= food.appetiteFilling;
+		if(appetiteCurrentLevel < 0)
+		{
+			appetiteCurrentLevel = 0;
+		}
+		UIBars.Instance.appetiteBar.current = appetiteCurrentLevel;
 
 		SetNutrientLevels(food);
+		UpdateNutrientUIBars();
 
 		SetOverallHealth();
+		UIBars.Instance.overallHealthBar.current = overallCurrentHealth;
 	}
 
 	private void SetNutrientLevels(Food food)
 	{
-		iodineLevel.currentNutrientLevel += food.iodineRegain;
-		ironLevel.currentNutrientLevel += food.ironRegain;
-		vitaminALevel.currentNutrientLevel += food.vitaminARegain;
-		vitaminBLevel.currentNutrientLevel += food.vitaminBRegain;
-		vitaminCLevel.currentNutrientLevel += food.vitaminCRegain;
-		vitaminDLevel.currentNutrientLevel += food.vitaminDRegain;
+		iodineLevel = IncreaseNutrientLevel(iodineLevel, food.iodineRegain);
+		ironLevel = IncreaseNutrientLevel(ironLevel, food.ironRegain);
+		vitaminALevel = IncreaseNutrientLevel(vitaminALevel, food.vitaminARegain);
+		vitaminBLevel = IncreaseNutrientLevel(vitaminBLevel, food.vitaminBRegain);
+		vitaminCLevel = IncreaseNutrientLevel(vitaminCLevel, food.vitaminCRegain);
+		vitaminDLevel = IncreaseNutrientLevel(vitaminDLevel, food.vitaminDRegain);
+	}
+
+	private NutrientLevel IncreaseNutrientLevel(NutrientLevel nutrientLevel, float increase)
+	{
+		nutrientLevel.currentNutrientLevel += increase;
+		if(nutrientLevel.currentNutrientLevel + increase > nutrientLevel.maxNutrientLevel)
+		{
+			nutrientLevel.currentNutrientLevel = nutrientLevel.maxNutrientLevel;
+		}
+
+		return nutrientLevel;
 	}
 
 	private void SetOverallHealth()

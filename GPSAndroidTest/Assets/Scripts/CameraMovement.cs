@@ -7,8 +7,6 @@ public class CameraMovement : MonoBehaviour
 
     public CinemachineFreeLook freeLook;
 
-	public CinemachineTargetGroup targetGroup;
-
     private bool isDragging;
 
 	private void Start()
@@ -57,11 +55,6 @@ public class CameraMovement : MonoBehaviour
 			isDragging = false;
 		}
     }
-
-	public void AddLookAt(Transform transform)
-	{
-		targetGroup.AddMember(transform, 1, 1);
-	}
 
 	public void SetLookAt(Transform transform)
 	{
