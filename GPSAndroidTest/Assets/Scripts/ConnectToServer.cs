@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
@@ -9,42 +7,66 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
 	public static ConnectToServer Instance;
 
+	public string PIN = "1234pin";
+
 	public GameObject GPSPlayerPrefab;
 	public GameObject mousePlayerPrefab;
 
 	public bool useMousePlayer = false;
 
 	public Text text;
+	public Text connectionText;
+
+	public RectTransform gameUI;
+	public RectTransform waitUI;
+	public RectTransform enterUI;
 
 	public static GameObject LocalPlayerInstance;
 
+	private bool isConnected = false;
+	private int numOfPlayers = 0;
+
 	private string gameVersion = "1";
-	
-	//[SerializeField] private byte maxPlayerPerRoom = 8;
 
 	void Start()
-    {
-        PhotonNetwork.ConnectUsingSettings();
-        PhotonNetwork.GameVersion = gameVersion;
-
+	{
 		Instance = this;
+	}
+
+	public void Connect()
+	{
+		PhotonNetwork.GameVersion = gameVersion;
+		PhotonNetwork.ConnectUsingSettings();
 
 		text.text = PhotonNetwork.BestRegionSummaryInPreferences;
 	}
 
-	public override void OnConnectedToMaster()
+	public void SetPin(string pin)
 	{
-		PhotonNetwork.JoinRandomRoom();
+		PIN = pin;
 	}
 
-	public override void OnJoinRandomFailed(short returnCode, string message)
+	public string GetPin()
 	{
-		PhotonNetwork.CreateRoom(null, new RoomOptions());
+		return PIN;
+	}
+
+	public override void OnConnectedToMaster()
+	{
+		PhotonNetwork.JoinRoom(PIN);
+	}
+
+	public override void OnJoinRoomFailed(short returnCode, string message)
+	{
+		PhotonNetwork.CreateRoom(PIN);
 	}
 
 	public override void OnDisconnected(DisconnectCause cause)
 	{
 		Debug.Log("Disconnected because: " + cause);
+		isConnected = false;
+
+		connectionText.text = "Disconnected because: " + cause;
 	}
 
 	public override void OnLeftRoom()
@@ -54,12 +76,36 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
 	public override void OnPlayerLeftRoom(Player otherPlayer)
 	{
-		Debug.Log("Player Left Room");
+		numOfPlayers--;
+
+		connectionText.text = "Joined room with name: " + PhotonNetwork.CurrentRoom.Name
+			+ ". Room has " + numOfPlayers + " player(s).";
+	}
+
+	public override void OnPlayerEnteredRoom(Player newPlayer)
+	{
+		numOfPlayers++;
+
+		connectionText.text = "Joined room with name: " + PhotonNetwork.CurrentRoom.Name
+			+ ". Room has " + numOfPlayers + " player(s).";
+
+	}
+
+	public override void OnCreatedRoom()
+	{
+		Debug.Log("Created room with name: " + PhotonNetwork.CurrentRoom.Name
+			+ ". Room has " + PhotonNetwork.CurrentRoom.PlayerCount + " player.");
 	}
 
 	public override void OnJoinedRoom()
 	{
-		Debug.Log("Joined room");
+		Debug.Log("Joined room with name: " + PhotonNetwork.CurrentRoom.Name
+			+ ". Room has " + PhotonNetwork.CurrentRoom.PlayerCount + " player(s).");
+
+		isConnected = true;
+		numOfPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+		connectionText.text = "Joined room with name: " + PhotonNetwork.CurrentRoom.Name
+			+ ". Room has " + numOfPlayers + " players.";
 
 		if (GPSPlayerPrefab == null)
 		{

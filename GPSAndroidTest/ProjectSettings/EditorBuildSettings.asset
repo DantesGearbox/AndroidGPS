@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/3DTest.unity
     guid: 436a18e7f6cb1f84d8edede71f3b3724
   - enabled: 0
     path: Assets/Scenes/ConnectionLobby.unity
     guid: 04879102d50a5d049bf34ded939ecee9
+  - enabled: 1
+    path: Assets/Scenes/3DTestBhutan.unity
+    guid: ced1f9ec4d17a2044b3c3d9f97c29b37
   m_configObjects: {}

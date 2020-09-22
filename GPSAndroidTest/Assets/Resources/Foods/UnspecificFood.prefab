@@ -240,6 +240,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: New interactable
+  iodineRegain: 0
+  ironRegain: 0
+  vitaminARegain: 0
+  vitaminBRegain: 0
+  vitaminCRegain: 0
+  vitaminDRegain: 0
+  appetiteFilling: 0
 --- !u!135 &88630122614015263
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -270,7 +277,7 @@ MonoBehaviour:
   prefixField: -1
   observableSearch: 2
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   ObservedComponents:
   - {fileID: 2023435563768339221}
   viewIdField: 0

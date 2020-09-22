@@ -20,7 +20,7 @@ public class PlayArea : MonoBehaviour
 
 	void Update()
 	{
-		if (!PhotonNetwork.IsMasterClient && PhotonNetwork.IsConnected)
+		if (!PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected)
 		{
 			return;
 		}

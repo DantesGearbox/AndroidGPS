@@ -270,8 +270,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5002552071148834480}
-  - component: {fileID: -6322419292753709259}
   - component: {fileID: 5002552071148834507}
+  - component: {fileID: -6322419292753709259}
   - component: {fileID: 5002552071148834483}
   - component: {fileID: 5002552071148834484}
   m_Layer: 0
@@ -298,6 +298,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &5002552071148834507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002552071148834485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4991dffbe42cf57408b44848c9c79e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GPSMovementSpeed: 5
+  mouseControls: 1
+  mouseControlMovementSpeed: 5
+  mousePosDebug: {fileID: 3171976889766486237}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &-6322419292753709259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,25 +358,6 @@ MonoBehaviour:
     currentNutrientLevel: 5
     maxNutrientLevel: 100
     minNutrientLevel: 0
---- !u!114 &5002552071148834507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5002552071148834485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4991dffbe42cf57408b44848c9c79e16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GPSMovementSpeed: 5
-  mouseControls: 1
-  mouseControlMovementSpeed: 5
-  mousePosDebug: {fileID: 3171976889766486237}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &5002552071148834483
 MonoBehaviour:
   m_ObjectHideFlags: 0
