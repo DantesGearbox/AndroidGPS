@@ -16,11 +16,12 @@ public class Food : Interactable
 	public void Eat()
 	{
 		Debug.Log("Ate food with name: " + name);
-		//Destroy(this.gameObject);
+		
+		//How to destroy food
+		// Tell masterclient to do it
 
-		//New way to destroy food. Take control of them and then destroy them.
 		PhotonView foodView = this.GetComponent<PhotonView>();
-		foodView.TransferOwnership(PhotonNetwork.LocalPlayer);
-		PhotonNetwork.Destroy(this.GetComponent<PhotonView>());
+		//foodView.TransferOwnership(PhotonNetwork.LocalPlayer);
+		//PhotonNetwork.Destroy(this.GetComponent<PhotonView>());
 	}
 }
